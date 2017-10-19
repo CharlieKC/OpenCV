@@ -1,0 +1,20 @@
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp: In function ‘int main(int, char**)’:
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:34:17: error: ‘imageOut’ was not declared in this scope
+  for(int y=0; y<imageOut.rows; y++) {
+                 ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:36:39: error: expected primary-expression before ‘>’ token
+     uchar pixelHue = imageOut.at<Vec3b>(y,x)[0];
+                                       ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:36:47: error: invalid types ‘int[int]’ for array subscript
+     uchar pixelHue = imageOut.at<Vec3b>(y,x)[0];
+                                               ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:45:22: error: expected primary-expression before ‘>’ token
+     imageOut.at<Vec3b>(y,x)[0]= pixelHue; //value
+                      ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:45:30: error: invalid types ‘int[int]’ for array subscript
+     imageOut.at<Vec3b>(y,x)[0]= pixelHue; //value
+                              ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:55:1: error: expected ‘}’ at end of input
+ }
+ ^
+/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:55:1: error: expected ‘}’ at end of input
