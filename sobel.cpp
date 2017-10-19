@@ -32,7 +32,7 @@ int main( int argc, char** argv )
  // CONVERT to hsv
  Mat hsv_image;
  cvtColor(image, hsv_image, CV_BGR2HSV );
-
+ sobel(hsv_image);
 
  return 0;
 }
@@ -55,9 +55,29 @@ void sobel(Mat &input) {
 			Mat dir;
 			dir.create(input.size(), input.type());
 
-			//create kernel
-			float kdata[] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
-			Mat kernel(3, 3, CV_32F, kdata);
+			//create x-gradient kernel
+			float xKernelValues[9] = {-1,0,1,-2,0,2,-1,0,1}
+			Mat xKernel =	cv.Mat(3,3, 8UC1, xKernelValues);
+
+			Vec3b intensity;
+
+			for(int x=1, x<input.rows-1; x++){
+				for(int y=1, y<input.cols-1; y++){
+
+					float total = 0.;
+
+					for(int m=-1; m<2; m++){
+						for(int n = -1; n<2; n++){
+							//value of input image (maybe)
+							intensity = input.at<Vec3b>(x-m, y-n)[2];
+							total += intensity*xKernel[m][n];
+
+						}
+					}
+
+				}
+			}
+
 }
 
 void GaussianBlur(cv::Mat &input, int size, cv::Mat &blurredOutput)
