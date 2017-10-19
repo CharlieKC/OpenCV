@@ -7,23 +7,22 @@
 
 using namespace cv;
 
-void GaussianBlur(
-
-	cv::Mat &input,
-	int size,
-	cv::Mat &blurredOutput);
+void GaussianBlur(cv::Mat &input,	int size,	cv::Mat &blurredOutput);
+void sobel(Mat &input);
 
 int main( int argc, char** argv )
 {
 
  // LOADING THE IMAGE
  //char* imageName = argv[1];
- char* imageName = "car.png";
+ char imageName = "car.png";
 
  Mat image;
  image = imread(imageName, 1);
 
- if( argc != 2 || !image.data )
+ //if( argc != 2 || !image.data )
+ //simpler for the moment
+ if(!image.data)
  {
    printf( " No image data \n " );
    return -1;
