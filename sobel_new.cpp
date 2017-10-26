@@ -1,23 +1,20 @@
-// header inclusion
 #include <stdio.h>
 #include <opencv/cv.h>        //you may need to
 #include <opencv/highgui.h>   //adjust import locations
-#include <opencv/cxcore.h>   //depending on your machine setup
-
+#include <opencv/cxcore.h>      //depending on your machine setup
 
 using namespace cv;
 
 void GaussianBlur(cv::Mat &input,	int size,	cv::Mat &blurredOutput);
-void sobel(Mat &input);
+void sobel(cv::Mat &input);
 
-int main( int argc, char** argv )
-{
+int main( int argc, char** argv ) {
 
  // LOADING THE IMAGE
  //char* imageName = argv[1];
  char imageName = "car.png";
 
- Mat image;
+ cv::Mat image;
  image = imread(imageName, 1);
 
  //if( argc != 2 || !image.data )
@@ -29,40 +26,39 @@ int main( int argc, char** argv )
  }
 
  // CONVERT to hsv
- Mat hsv_image;
+ cv::Mat hsv_image;
  cvtColor(image, hsv_image, CV_BGR2HSV );
  sobel(hsv_image);
 
  return 0;
 }
 
-void sobel(Mat &input) {
+void sobel(cv::Mat &input) {
 
 			//x-gradient image and kernel
-			Mat dX;
+			cv::Mat dX;
 			dX.create(input.size(), input.type());
 
 			float xKernelValues[9] = {-1,0,1,-2,0,2,-1,0,1}
-			Mat xKernel =	cv.Mat(3,3, 8UC1, xKernelValues);
+			cv::Mat xKernel =	cv::Mat(3,3, CV_8UC3, xKernelValues);
 
 			//Y-gradient image and kernel
-			Mat dY;
+			cv::Mat dY;
 			dY.create(input.size(), input.type());
 
-			Mat yKernel;
 			//y-gradient kernel is transpose of x
-			transpose(xKernel,yKernel);
+			cv::Mat yKernel;
+			cv::transpose(xKernel,yKernel);
 
 			//gradient magnitude image
-			Mat mag;
+			cv::Mat mag;
 			mag.create(input.size(), input.type());
 
 			// gradient direction image
-			Mat dir;
+			cv::Mat dir;
 			dir.create(input.size(), input.type());
 
-
-			Vec3b intensity;
+			cv::Vec3b intensity;
 
 			//loop over image pixels
 			for(int x=1, x<input.rows-1; x++){

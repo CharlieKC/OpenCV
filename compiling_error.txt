@@ -1,20 +1,63 @@
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp: In function ‘int main(int, char**)’:
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:34:17: error: ‘imageOut’ was not declared in this scope
-  for(int y=0; y<imageOut.rows; y++) {
-                 ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:36:39: error: expected primary-expression before ‘>’ token
-     uchar pixelHue = imageOut.at<Vec3b>(y,x)[0];
-                                       ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:36:47: error: invalid types ‘int[int]’ for array subscript
-     uchar pixelHue = imageOut.at<Vec3b>(y,x)[0];
-                                               ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:45:22: error: expected primary-expression before ‘>’ token
-     imageOut.at<Vec3b>(y,x)[0]= pixelHue; //value
-                      ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:45:30: error: invalid types ‘int[int]’ for array subscript
-     imageOut.at<Vec3b>(y,x)[0]= pixelHue; //value
-                              ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:55:1: error: expected ‘}’ at end of input
- }
- ^
-/home/msc17/ck17420/linux/openCV/RGBtoHSV.cpp:55:1: error: expected ‘}’ at end of input
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp: In function ‘int main(int, char**)’:
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:15:19: error: invalid conversion from ‘const char*’ to ‘char’ [-fpermissive]
+  char imageName = "car.png";
+                   ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:18:29: error: invalid user-defined conversion from ‘char’ to ‘const string& {aka const std::basic_string<char>&}’ [-fpermissive]
+  image = imread(imageName, 1);
+                             ^
+In file included from /usr/include/c++/4.8.2/string:53:0,
+                 from /usr/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8.2/ios:42,
+                 from /usr/include/c++/4.8.2/istream:38,
+                 from /usr/include/c++/4.8.2/sstream:38,
+                 from /usr/include/c++/4.8.2/complex:45,
+                 from /usr/include/opencv2/core/core.hpp:59,
+                 from /usr/include/opencv/cv.h:64,
+                 from /home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:2:
+/usr/include/c++/4.8.2/bits/basic_string.tcc:212:5: note: candidate is: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8.2/bits/basic_string.tcc:212:5: note:   no known conversion for argument 1 from ‘char’ to ‘const char*’
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:18:29: error: invalid conversion from ‘char’ to ‘const char*’ [-fpermissive]
+  image = imread(imageName, 1);
+                             ^
+In file included from /usr/include/c++/4.8.2/string:53:0,
+                 from /usr/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8.2/ios:42,
+                 from /usr/include/c++/4.8.2/istream:38,
+                 from /usr/include/c++/4.8.2/sstream:38,
+                 from /usr/include/c++/4.8.2/complex:45,
+                 from /usr/include/opencv2/core/core.hpp:59,
+                 from /usr/include/opencv/cv.h:64,
+                 from /home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:2:
+/usr/include/c++/4.8.2/bits/basic_string.tcc:212:5: error:   initializing argument 1 of ‘std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]’ [-fpermissive]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp: In function ‘void sobel(cv::Mat&)’:
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:43:4: error: expected ‘,’ or ‘;’ before ‘cv’
+    cv::Mat xKernel = cv::Mat(3,3, CV_8UC3, xKernelValues);
+    ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:51:18: error: ‘xKernel’ was not declared in this scope
+    cv::transpose(xKernel,yKernel);
+                  ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:64:18: error: expected initializer before ‘<’ token
+    for(int x=1, x<input.rows-1; x++){
+                  ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:64:18: error: expected ‘;’ before ‘<’ token
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:64:18: error: expected primary-expression before ‘<’ token
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:65:19: error: expected initializer before ‘<’ token
+     for(int y=1, y<input.cols-1; y++){
+                   ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:65:19: error: expected ‘;’ before ‘<’ token
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:65:19: error: expected primary-expression before ‘<’ token
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:75:8: error: ‘intensityX’ was not declared in this scope
+        intensityX = input.at<Vec3b>(x-m, y-n)[2];
+        ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:78:8: error: ‘intensityY’ was not declared in this scope
+        intensityY = input.at<Vec3b>(x-m, y-n)[2];
+        ^
+/home/msc17/ck17420/linux/OpenCVLabs/sobel_new.cpp:79:36: error: no match for ‘operator[]’ (operand types are ‘cv::Mat’ and ‘int’)
+        totalY += intensityY*yKernel[m+1][n+1];
+                                    ^
